@@ -1,69 +1,86 @@
+@import "../../_app.scss";
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  height: 10vh;
+  width: 100%;
+
+  &__menu {
+    display: none;
+  }
+
+  &__logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+  }
+
+  form {
+    flex: 0.6;
     display: flex;
+    padding: 0.1rem;
+    margin: 0 1rem;
+    border-radius: 3px;
+    border: 1.2px solid;
+    background-color: $black-secondary;
+
+    input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0.3rem;
+      color: $text-color;
+      font-weight: 500;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 0 1.25rem;
+      color: $text-color;
+      background-color: transparent;
+      border: none;
+      &:focus {
+        border: none;
+      }
+    }
+  }
+
+  &__icons {
+    flex: 0.15;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem 3rem;
-    height: 10vh;
-    width: 100%;
 
-    &__menu{
-        display: none;
+    img {
+      border-radius: 50%;
+      width: 40px;
+      object-fit: contain;
+      margin-left: 5px;
     }
+  }
+}
 
-    &__logo{
-       width: 30px;
-       height: 30px;
-       object-fit: contain;
-       display: block;
+@media (max-width: $breakpoint-small) {
+  .header {
+    padding: 1rem;
+    form {
+      flex: 1;
     }
-
-    form{
-        flex: 0.6;
-        display: flex;
-        padding: 0.1rem;
-        margin: 0 1rem;
-        border-radius: 3px;
-        border: 1.2px solid;
-        background-color: var(--black-secondary);
-
-        input{
-            width: 100%;
-            border: none;
-            background: transparent;
-            padding: 0.3rem;
-            color: var(--text-color);
-            font-weight: 500;
-
-            &:focus{
-                outline: none;
-            }
-        }
-
-        button{
-            padding: 0 1.25rem;
-            color: var(--text-color);
-            background-color: transparent;
-            border: none;
-            &:focus{
-                border: none;
-            }
-            
-        }
+    &__menu {
+      display: block;
     }
-    
-    
-    &__icons{
-        flex: 0.15;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        img{
-            border-radius: 50%;
-            width: 40px;
-            object-fit: contain;
-            margin-left: 5px;
-        }
+    &__logo {
+      display: none;
     }
-    
+    &__icons > *:not(img) {
+      display: none;
+    }
+  }
 }
